@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: teaching-eureka
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://port2:8011/eureka/
+server:
+  port: 8019

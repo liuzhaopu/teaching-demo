@@ -1,0 +1,9 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://port1:8011/eureka/,http://port2:8019/eureka/
+spring:
+  application:
+    name: teaching-services
+server:
+  port: 8013

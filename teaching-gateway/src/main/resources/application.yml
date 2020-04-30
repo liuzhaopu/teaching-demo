@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: teaching-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: teaching-services
+          predicates:
+          - Path=/service1/**
+          uri: lb://teaching-services
+          filters:
+          - StripPrefix=1
+          - name: Hystrix
+            args:
+              name: fallbackcmd
+              fallbackUri: forward:/fallBack
+            #- PrefixPath=/teaching
+        - id: teaching-services1
+          predicates:
+            - Path=/service2/**
+          uri: lb://teaching-services1
+          filters:
+            - StripPrefix=1
+#              - name: Hystrix
+#                args:
+#                  name: fallbackcmd
+#                  fallbackUri: forward:/fallBack
+                #- PrefixPath=/teaching
+server:
+  port: 8012
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://port1:8011/eureka/,http://port2:8019/eureka/
+hystrix.

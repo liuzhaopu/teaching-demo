@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: teaching-services1
+  cloud:
+    config:
+      #label: master
+      profile: dev
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: teaching-config
+server:
+  port: 8014
+eureka:
+  client:
+    service-url:
+      defaultZone: http://port1:8011/eureka/,http://port2:8019/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+ri
+

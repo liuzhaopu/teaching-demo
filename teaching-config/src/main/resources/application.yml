@@ -1,0 +1,24 @@
+server:
+  port: 8016
+
+spring:
+  application:
+    name: teaching-config
+  cloud:
+    config:
+#        native:
+#          search-locations: D:/config-server
+      #label: master
+      server:
+        git:
+          uri: https://github.com/liuzhaopu/config-center
+          username: liuzhaopu123@163.com
+          password: lovexlpy13141314
+#  profiles:
+#    active: native
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://port1:8011/eureka/,http://port2:8019/eureka/,

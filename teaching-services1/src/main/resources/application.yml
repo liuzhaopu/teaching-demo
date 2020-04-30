@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: teaching-services1
+server:
+  port: 8014
+eureka:
+  client:
+    service-url:
+      defaultZone: http://port1:8011/eureka/,http://port2:8019/eureka/
+teaching-services:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ReadTimeout: 15000
+    ConnectTimeout: 15000
+    MaxAutoRetries: 1
+    MaxAutoRetriesNextServer: 1
+feign:
+  hystrix:
+    enabled: true
+
